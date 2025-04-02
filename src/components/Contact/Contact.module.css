@@ -1,0 +1,21 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 300px;
+  background-color: rgb(245, 239, 248);
+}
+
+.icon {
+  margin-right: 15px;
+}
+
+.btn {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(215, 220, 229);
+}

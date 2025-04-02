@@ -1,0 +1,32 @@
+.contact {
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 350px;
+  background-color: rgb(245, 239, 248);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btn {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(215, 220, 229);
+}
+
+.input {
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 15px;
+}
+.error {
+  color: red;
+}
