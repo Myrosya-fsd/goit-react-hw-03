@@ -1,6 +1,6 @@
 .searchBox {
   margin-bottom: 20px;
-  width: 330px;
+  width: 350px;
 }
 
 .label {
@@ -12,7 +12,11 @@
 
 .input {
   padding: 8px;
-  height: 45px;
+  height: 40px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.input:hover {
+  border: 2px solid rgb(179, 153, 187);
 }

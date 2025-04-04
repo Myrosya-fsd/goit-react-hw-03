@@ -5,7 +5,11 @@
   padding: 10px 30px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  width: 300px;
+  width: 302px;
+}
+
+.item:hover {
+  border: 2px solid rgb(179, 153, 187);
 }
 
 .info {
@@ -21,8 +25,9 @@
 }
 
 .button {
-  padding: 6px 12px;
-  background-color: #ff4d4f;
+  padding: 6px 15px;
+  /*background-color: rgb(167, 171, 179);*/
+  background-color: rgb(179, 153, 187);
   color: white;
   border: none;
   border-radius: 4px;

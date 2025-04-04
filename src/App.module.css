@@ -1,4 +1,6 @@
 .container {
-  padding: 20px;
+  padding: 100px;
   font-family: sans-serif;
+  background-color: rgb(242, 239, 244);
+  min-height: 100vh;
 }

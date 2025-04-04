@@ -4,6 +4,8 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
 import styles from "./App.module.css";
 
+const LS_KEY = "saved-contacts";
+
 const initialContacts = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
   { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
@@ -12,11 +14,15 @@ const initialContacts = [
 ];
 
 function App() {
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(() => {
+    const saved = localStorage.getItem(LS_KEY);
+    return saved ? JSON.parse(saved) : initialContacts;
+  });
+
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
+    localStorage.setItem(LS_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
   const handleAddContact = (newContact) => {
