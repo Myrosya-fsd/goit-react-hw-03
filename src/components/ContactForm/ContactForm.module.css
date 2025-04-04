@@ -1,4 +1,4 @@
-.contact {
+/*.contact {
   border: none;
   border-radius: 10px;
   padding: 1rem;
@@ -29,4 +29,51 @@
 }
 .error {
   color: red;
+}*/
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 2px solid #ccc; /* сіра рамка */
+  border-radius: 12px; /* закруглені кути */
+  padding: 20px; /* внутрішній відступ */
+  margin-bottom: 24px;
+  width: 350px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 4px;
+  width: 310px;
+}
+
+.button {
+  padding: 10px;
+  background-color: rgb(214, 219, 226);
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.button:hover {
+  background-color: rgb(167, 171, 179);
+  color: white;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 4px;
 }

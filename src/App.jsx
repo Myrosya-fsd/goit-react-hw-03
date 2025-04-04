@@ -1,55 +1,46 @@
-import { useEffect, useState } from "react";
-import css from "./App.module.css";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
+import React, { useState, useEffect } from "react";
 import ContactList from "./components/ContactList/ContactList";
+import SearchBox from "./components/SearchBox/SearchBox";
+import ContactForm from "./components/ContactForm/ContactForm";
+import styles from "./App.module.css";
+
+const initialContacts = [
+  { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+  { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+  { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+  { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+];
 
 function App() {
-  const [contacts, setContacts] = useState(() => {
-    const savedContacts = window.localStorage.getItem("saved-contacts");
-    if (savedContacts !== null) {
-      return JSON.parse(savedContacts);
-    }
-    return [
-      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-    ];
-  });
-  const [query, setQuery] = useState("");
-
-  const handleAddContact = (contact) => {
-    setContacts((prev) => {
-      return [...prev, contact];
-    });
-  };
-
-  const handleRemoveContact = (contactId) => {
-    setContacts((prev) => {
-      return prev.filter((contact) => contact.id !== contactId);
-    });
-  };
-
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(query.toLowerCase())
-  );
+  const [contacts, setContacts] = useState(initialContacts);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
   }, [contacts]);
 
+  const handleAddContact = (newContact) => {
+    setContacts((prev) => [...prev, newContact]);
+  };
+
+  const handleDelete = (id) => {
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
+  };
+
+  const handleFilterChange = (value) => {
+    setFilter(value);
+  };
+
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
-    <div className={css.app}>
+    <div className={styles.container}>
       <h1>Phonebook</h1>
-      <ContactForm handleAddContact={handleAddContact} />
-      <SearchBox query={query} setQuery={setQuery} />
-      {filteredContacts.length > 0 && (
-        <ContactList
-          list={filteredContacts}
-          handleRemoveContact={handleRemoveContact}
-        />
-      )}
+      <ContactForm onAdd={handleAddContact} />
+      <SearchBox value={filter} onChange={handleFilterChange} />
+      <ContactList contacts={filteredContacts} onDelete={handleDelete} />
     </div>
   );
 }

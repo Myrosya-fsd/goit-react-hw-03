@@ -1,14 +1,18 @@
 .searchBox {
+  margin-bottom: 20px;
+  width: 330px;
+}
+
+.label {
+  font-weight: bold;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  width: 330px;
-  margin-left: 10px;
+  gap: 8px;
 }
 
 .input {
+  padding: 8px;
   height: 45px;
-  border-radius: 10px;
-  border: none;
-  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
